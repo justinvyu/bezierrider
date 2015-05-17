@@ -1,0 +1,1 @@
+PODS_BEZIER_RIDER_FLATUIKIT_OTHER_LDFLAGS = -framework "CoreText" -framework "QuartzCore"

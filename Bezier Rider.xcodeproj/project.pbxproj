@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D06433A01B028F46006EA367 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D064339F1B028F46006EA367 /* main.m */; };
+		D06433A31B028F46006EA367 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D06433A21B028F46006EA367 /* AppDelegate.m */; };
+		D06433A61B028F46006EA367 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D06433A51B028F46006EA367 /* GameScene.m */; };
+		D06433AB1B028F46006EA367 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06433AA1B028F46006EA367 /* GameViewController.m */; };
+		D06433AE1B028F46006EA367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06433AC1B028F46006EA367 /* Main.storyboard */; };
+		D06433B01B028F46006EA367 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06433AF1B028F46006EA367 /* Images.xcassets */; };
+		D06433B31B028F46006EA367 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06433B11B028F46006EA367 /* LaunchScreen.xib */; };
+		D06433BF1B028F46006EA367 /* Bezier_RiderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D06433BE1B028F46006EA367 /* Bezier_RiderTests.m */; };
+		D06433CA1B0291B5006EA367 /* JYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06433C91B0291B5006EA367 /* JYHomeViewController.m */; };
+		D0BC6D4F1B030D85003FB186 /* JYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D4E1B030D85003FB186 /* JYUtils.m */; };
+		D0BC6D531B031D7C003FB186 /* JYPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D521B031D7C003FB186 /* JYPoint.m */; };
+		D0BC6D561B042F04003FB186 /* JYStageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D551B042F04003FB186 /* JYStageButton.m */; };
+		D0BC6D5A1B04EB02003FB186 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D591B04EB02003FB186 /* SKButton.m */; };
+		D0BC6D5D1B05C0ED003FB186 /* JYBall.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D5C1B05C0ED003FB186 /* JYBall.m */; };
+		D0BC6D601B06F338003FB186 /* SKBezierNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D5F1B06F338003FB186 /* SKBezierNode.m */; };
+		D0BC6D631B08431B003FB186 /* JYTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D621B08431B003FB186 /* JYTarget.m */; };
+		D0BC6D661B0853CD003FB186 /* JYHighlightNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D651B0853CD003FB186 /* JYHighlightNode.m */; };
+		D0BC6D691B086091003FB186 /* JYTutorialLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D681B086091003FB186 /* JYTutorialLabel.m */; };
+		D0BC6D6C1B08FAEC003FB186 /* JYWall.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D6B1B08FAEC003FB186 /* JYWall.m */; };
+		D98E0CEEBB373032C6C2AE52 /* Pods_Bezier_Rider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B3997222A8FE5EAD5CBA4D /* Pods_Bezier_Rider.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D06433B91B028F46006EA367 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D06433921B028F46006EA367 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D06433991B028F46006EA367;
+			remoteInfo = "Bezier Rider";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26B3997222A8FE5EAD5CBA4D /* Pods_Bezier_Rider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bezier_Rider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40BEDA90C90576484441B352 /* Pods-Bezier Rider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bezier Rider.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bezier Rider/Pods-Bezier Rider.release.xcconfig"; sourceTree = "<group>"; };
+		A9643AEFAA9D1134DAFD97DD /* Pods-Bezier Rider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bezier Rider.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bezier Rider/Pods-Bezier Rider.debug.xcconfig"; sourceTree = "<group>"; };
+		D064339A1B028F46006EA367 /* Bezier Rider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bezier Rider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D064339E1B028F46006EA367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D064339F1B028F46006EA367 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D06433A11B028F46006EA367 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D06433A21B028F46006EA367 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D06433A41B028F46006EA367 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		D06433A51B028F46006EA367 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		D06433A91B028F46006EA367 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		D06433AA1B028F46006EA367 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		D06433AD1B028F46006EA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D06433AF1B028F46006EA367 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D06433B21B028F46006EA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D06433B81B028F46006EA367 /* Bezier RiderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bezier RiderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06433BD1B028F46006EA367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D06433BE1B028F46006EA367 /* Bezier_RiderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bezier_RiderTests.m; sourceTree = "<group>"; };
+		D06433C81B0291B5006EA367 /* JYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYHomeViewController.h; sourceTree = "<group>"; };
+		D06433C91B0291B5006EA367 /* JYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYHomeViewController.m; sourceTree = "<group>"; };
+		D0BC6D4D1B030D85003FB186 /* JYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYUtils.h; sourceTree = "<group>"; };
+		D0BC6D4E1B030D85003FB186 /* JYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYUtils.m; sourceTree = "<group>"; };
+		D0BC6D511B031D7C003FB186 /* JYPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYPoint.h; sourceTree = "<group>"; };
+		D0BC6D521B031D7C003FB186 /* JYPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYPoint.m; sourceTree = "<group>"; };
+		D0BC6D541B042F04003FB186 /* JYStageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYStageButton.h; sourceTree = "<group>"; };
+		D0BC6D551B042F04003FB186 /* JYStageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYStageButton.m; sourceTree = "<group>"; };
+		D0BC6D581B04EB02003FB186 /* SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKButton.h; sourceTree = "<group>"; };
+		D0BC6D591B04EB02003FB186 /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
+		D0BC6D5B1B05C0ED003FB186 /* JYBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYBall.h; sourceTree = "<group>"; };
+		D0BC6D5C1B05C0ED003FB186 /* JYBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYBall.m; sourceTree = "<group>"; };
+		D0BC6D5E1B06F338003FB186 /* SKBezierNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBezierNode.h; sourceTree = "<group>"; };
+		D0BC6D5F1B06F338003FB186 /* SKBezierNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBezierNode.m; sourceTree = "<group>"; };
+		D0BC6D611B08431B003FB186 /* JYTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYTarget.h; sourceTree = "<group>"; };
+		D0BC6D621B08431B003FB186 /* JYTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYTarget.m; sourceTree = "<group>"; };
+		D0BC6D641B0853CD003FB186 /* JYHighlightNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYHighlightNode.h; sourceTree = "<group>"; };
+		D0BC6D651B0853CD003FB186 /* JYHighlightNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYHighlightNode.m; sourceTree = "<group>"; };
+		D0BC6D671B086091003FB186 /* JYTutorialLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYTutorialLabel.h; sourceTree = "<group>"; };
+		D0BC6D681B086091003FB186 /* JYTutorialLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYTutorialLabel.m; sourceTree = "<group>"; };
+		D0BC6D6A1B08FAEC003FB186 /* JYWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYWall.h; sourceTree = "<group>"; };
+		D0BC6D6B1B08FAEC003FB186 /* JYWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYWall.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D06433971B028F46006EA367 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D98E0CEEBB373032C6C2AE52 /* Pods_Bezier_Rider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D06433B51B028F46006EA367 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15C3476C07F2A3697CB114AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9643AEFAA9D1134DAFD97DD /* Pods-Bezier Rider.debug.xcconfig */,
+				40BEDA90C90576484441B352 /* Pods-Bezier Rider.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		16A125557F9A206B0ECDBE6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26B3997222A8FE5EAD5CBA4D /* Pods_Bezier_Rider.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D06433911B028F46006EA367 = {
+			isa = PBXGroup;
+			children = (
+				D064339C1B028F46006EA367 /* Bezier Rider */,
+				D06433BB1B028F46006EA367 /* Bezier RiderTests */,
+				D064339B1B028F46006EA367 /* Products */,
+				15C3476C07F2A3697CB114AE /* Pods */,
+				16A125557F9A206B0ECDBE6A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D064339B1B028F46006EA367 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D064339A1B028F46006EA367 /* Bezier Rider.app */,
+				D06433B81B028F46006EA367 /* Bezier RiderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D064339C1B028F46006EA367 /* Bezier Rider */ = {
+			isa = PBXGroup;
+			children = (
+				D06433AC1B028F46006EA367 /* Main.storyboard */,
+				D06433B11B028F46006EA367 /* LaunchScreen.xib */,
+				D06433AF1B028F46006EA367 /* Images.xcassets */,
+				D06433CD1B0291E4006EA367 /* Sprite Kit */,
+				D0BC6D571B042F11003FB186 /* Custom Views */,
+				D06433CC1B0291D3006EA367 /* Delegate */,
+				D06433CB1B0291BA006EA367 /* View Controller */,
+				D0BC6D501B030D8A003FB186 /* Helper */,
+				D064339D1B028F46006EA367 /* Supporting Files */,
+			);
+			path = "Bezier Rider";
+			sourceTree = "<group>";
+		};
+		D064339D1B028F46006EA367 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D064339E1B028F46006EA367 /* Info.plist */,
+				D064339F1B028F46006EA367 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D06433BB1B028F46006EA367 /* Bezier RiderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D06433BE1B028F46006EA367 /* Bezier_RiderTests.m */,
+				D06433BC1B028F46006EA367 /* Supporting Files */,
+			);
+			path = "Bezier RiderTests";
+			sourceTree = "<group>";
+		};
+		D06433BC1B028F46006EA367 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D06433BD1B028F46006EA367 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D06433CB1B0291BA006EA367 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D06433C81B0291B5006EA367 /* JYHomeViewController.h */,
+				D06433C91B0291B5006EA367 /* JYHomeViewController.m */,
+				D06433A91B028F46006EA367 /* GameViewController.h */,
+				D06433AA1B028F46006EA367 /* GameViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		D06433CC1B0291D3006EA367 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D06433A11B028F46006EA367 /* AppDelegate.h */,
+				D06433A21B028F46006EA367 /* AppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		D06433CD1B0291E4006EA367 /* Sprite Kit */ = {
+			isa = PBXGroup;
+			children = (
+				D06433A41B028F46006EA367 /* GameScene.h */,
+				D06433A51B028F46006EA367 /* GameScene.m */,
+				D0BC6D6A1B08FAEC003FB186 /* JYWall.h */,
+				D0BC6D6B1B08FAEC003FB186 /* JYWall.m */,
+				D0BC6D671B086091003FB186 /* JYTutorialLabel.h */,
+				D0BC6D681B086091003FB186 /* JYTutorialLabel.m */,
+				D0BC6D641B0853CD003FB186 /* JYHighlightNode.h */,
+				D0BC6D651B0853CD003FB186 /* JYHighlightNode.m */,
+				D0BC6D5E1B06F338003FB186 /* SKBezierNode.h */,
+				D0BC6D5F1B06F338003FB186 /* SKBezierNode.m */,
+				D0BC6D581B04EB02003FB186 /* SKButton.h */,
+				D0BC6D591B04EB02003FB186 /* SKButton.m */,
+				D0BC6D611B08431B003FB186 /* JYTarget.h */,
+				D0BC6D621B08431B003FB186 /* JYTarget.m */,
+				D0BC6D5B1B05C0ED003FB186 /* JYBall.h */,
+				D0BC6D5C1B05C0ED003FB186 /* JYBall.m */,
+				D0BC6D511B031D7C003FB186 /* JYPoint.h */,
+				D0BC6D521B031D7C003FB186 /* JYPoint.m */,
+			);
+			name = "Sprite Kit";
+			sourceTree = "<group>";
+		};
+		D0BC6D501B030D8A003FB186 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC6D4D1B030D85003FB186 /* JYUtils.h */,
+				D0BC6D4E1B030D85003FB186 /* JYUtils.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		D0BC6D571B042F11003FB186 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC6D541B042F04003FB186 /* JYStageButton.h */,
+				D0BC6D551B042F04003FB186 /* JYStageButton.m */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D06433991B028F46006EA367 /* Bezier Rider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D06433C21B028F47006EA367 /* Build configuration list for PBXNativeTarget "Bezier Rider" */;
+			buildPhases = (
+				38971A8EC5B57543BA4FA28D /* Check Pods Manifest.lock */,
+				D06433961B028F46006EA367 /* Sources */,
+				D06433971B028F46006EA367 /* Frameworks */,
+				D06433981B028F46006EA367 /* Resources */,
+				9309B97E70AB3488AFC9B8EF /* Embed Pods Frameworks */,
+				EA88E9C8466A7119B694943D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bezier Rider";
+			productName = "Bezier Rider";
+			productReference = D064339A1B028F46006EA367 /* Bezier Rider.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D06433B71B028F46006EA367 /* Bezier RiderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D06433C51B028F47006EA367 /* Build configuration list for PBXNativeTarget "Bezier RiderTests" */;
+			buildPhases = (
+				D06433B41B028F46006EA367 /* Sources */,
+				D06433B51B028F46006EA367 /* Frameworks */,
+				D06433B61B028F46006EA367 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D06433BA1B028F46006EA367 /* PBXTargetDependency */,
+			);
+			name = "Bezier RiderTests";
+			productName = "Bezier RiderTests";
+			productReference = D06433B81B028F46006EA367 /* Bezier RiderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D06433921B028F46006EA367 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Justin Yu";
+				TargetAttributes = {
+					D06433991B028F46006EA367 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					D06433B71B028F46006EA367 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = D06433991B028F46006EA367;
+					};
+				};
+			};
+			buildConfigurationList = D06433951B028F46006EA367 /* Build configuration list for PBXProject "Bezier Rider" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D06433911B028F46006EA367;
+			productRefGroup = D064339B1B028F46006EA367 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D06433991B028F46006EA367 /* Bezier Rider */,
+				D06433B71B028F46006EA367 /* Bezier RiderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D06433981B028F46006EA367 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06433B31B028F46006EA367 /* LaunchScreen.xib in Resources */,
+				D06433B01B028F46006EA367 /* Images.xcassets in Resources */,
+				D06433AE1B028F46006EA367 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D06433B61B028F46006EA367 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38971A8EC5B57543BA4FA28D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9309B97E70AB3488AFC9B8EF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bezier Rider/Pods-Bezier Rider-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA88E9C8466A7119B694943D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bezier Rider/Pods-Bezier Rider-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D06433961B028F46006EA367 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06433CA1B0291B5006EA367 /* JYHomeViewController.m in Sources */,
+				D06433AB1B028F46006EA367 /* GameViewController.m in Sources */,
+				D0BC6D531B031D7C003FB186 /* JYPoint.m in Sources */,
+				D0BC6D631B08431B003FB186 /* JYTarget.m in Sources */,
+				D0BC6D5D1B05C0ED003FB186 /* JYBall.m in Sources */,
+				D0BC6D4F1B030D85003FB186 /* JYUtils.m in Sources */,
+				D0BC6D601B06F338003FB186 /* SKBezierNode.m in Sources */,
+				D06433A31B028F46006EA367 /* AppDelegate.m in Sources */,
+				D0BC6D6C1B08FAEC003FB186 /* JYWall.m in Sources */,
+				D0BC6D661B0853CD003FB186 /* JYHighlightNode.m in Sources */,
+				D0BC6D691B086091003FB186 /* JYTutorialLabel.m in Sources */,
+				D0BC6D5A1B04EB02003FB186 /* SKButton.m in Sources */,
+				D0BC6D561B042F04003FB186 /* JYStageButton.m in Sources */,
+				D06433A61B028F46006EA367 /* GameScene.m in Sources */,
+				D06433A01B028F46006EA367 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D06433B41B028F46006EA367 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06433BF1B028F46006EA367 /* Bezier_RiderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D06433BA1B028F46006EA367 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D06433991B028F46006EA367 /* Bezier Rider */;
+			targetProxy = D06433B91B028F46006EA367 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D06433AC1B028F46006EA367 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D06433AD1B028F46006EA367 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D06433B11B028F46006EA367 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D06433B21B028F46006EA367 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D06433C01B028F46006EA367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D06433C11B028F46006EA367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D06433C31B028F47006EA367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9643AEFAA9D1134DAFD97DD /* Pods-Bezier Rider.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Bezier Rider/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D06433C41B028F47006EA367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40BEDA90C90576484441B352 /* Pods-Bezier Rider.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Bezier Rider/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D06433C61B028F47006EA367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Bezier RiderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bezier Rider.app/Bezier Rider";
+			};
+			name = Debug;
+		};
+		D06433C71B028F47006EA367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Bezier RiderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bezier Rider.app/Bezier Rider";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D06433951B028F46006EA367 /* Build configuration list for PBXProject "Bezier Rider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06433C01B028F46006EA367 /* Debug */,
+				D06433C11B028F46006EA367 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D06433C21B028F47006EA367 /* Build configuration list for PBXNativeTarget "Bezier Rider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06433C31B028F47006EA367 /* Debug */,
+				D06433C41B028F47006EA367 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D06433C51B028F47006EA367 /* Build configuration list for PBXNativeTarget "Bezier RiderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06433C61B028F47006EA367 /* Debug */,
+				D06433C71B028F47006EA367 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D06433921B028F46006EA367 /* Project object */;
+}

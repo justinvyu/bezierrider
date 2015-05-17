@@ -1,0 +1,6 @@
+framework module Pods_Bezier_Rider {
+  umbrella header "Pods-Bezier Rider-umbrella.h"
+
+  export *
+  module * { export * }
+}
