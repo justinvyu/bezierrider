@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "417E2188C994789D32D1BA46"
+               BlueprintIdentifier = "E1A446545B69868B906C18D1"
                BuildableName = "Pods_Bezier_Rider.framework"
                BlueprintName = "Pods-Bezier Rider"
                ReferencedContainer = "container:Pods.xcodeproj">

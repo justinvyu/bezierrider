@@ -26,6 +26,7 @@
 		D0BC6D661B0853CD003FB186 /* JYHighlightNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D651B0853CD003FB186 /* JYHighlightNode.m */; };
 		D0BC6D691B086091003FB186 /* JYTutorialLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D681B086091003FB186 /* JYTutorialLabel.m */; };
 		D0BC6D6C1B08FAEC003FB186 /* JYWall.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC6D6B1B08FAEC003FB186 /* JYWall.m */; };
+		D0C4B6D71B09B49600ECB1D7 /* JYDemoCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C4B6D61B09B49600ECB1D7 /* JYDemoCurve.m */; };
 		D98E0CEEBB373032C6C2AE52 /* Pods_Bezier_Rider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B3997222A8FE5EAD5CBA4D /* Pods_Bezier_Rider.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		D0BC6D681B086091003FB186 /* JYTutorialLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYTutorialLabel.m; sourceTree = "<group>"; };
 		D0BC6D6A1B08FAEC003FB186 /* JYWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYWall.h; sourceTree = "<group>"; };
 		D0BC6D6B1B08FAEC003FB186 /* JYWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYWall.m; sourceTree = "<group>"; };
+		D0C4B6D51B09B49600ECB1D7 /* JYDemoCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYDemoCurve.h; sourceTree = "<group>"; };
+		D0C4B6D61B09B49600ECB1D7 /* JYDemoCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYDemoCurve.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 			children = (
 				D06433C81B0291B5006EA367 /* JYHomeViewController.h */,
 				D06433C91B0291B5006EA367 /* JYHomeViewController.m */,
+				D0C4B6D51B09B49600ECB1D7 /* JYDemoCurve.h */,
+				D0C4B6D61B09B49600ECB1D7 /* JYDemoCurve.m */,
 				D06433A91B028F46006EA367 /* GameViewController.h */,
 				D06433AA1B028F46006EA367 /* GameViewController.m */,
 			);
@@ -399,6 +404,7 @@
 				D0BC6D531B031D7C003FB186 /* JYPoint.m in Sources */,
 				D0BC6D631B08431B003FB186 /* JYTarget.m in Sources */,
 				D0BC6D5D1B05C0ED003FB186 /* JYBall.m in Sources */,
+				D0C4B6D71B09B49600ECB1D7 /* JYDemoCurve.m in Sources */,
 				D0BC6D4F1B030D85003FB186 /* JYUtils.m in Sources */,
 				D0BC6D601B06F338003FB186 /* SKBezierNode.m in Sources */,
 				D06433A31B028F46006EA367 /* AppDelegate.m in Sources */,

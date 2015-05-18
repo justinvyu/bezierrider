@@ -11,8 +11,8 @@
 #import "JYUtils.h"
 #import "GameViewController.h"
 #import "JYStageButton.h"
-#import "NSString+Icons.h"
 #import "GameScene.h"
+#import "JYDemoCurve.h"
 
 @interface JYHomeViewController ()
 
@@ -22,6 +22,8 @@
 
 @property (nonatomic, strong) FUIButton *playButton;
 @property (nonatomic, strong) JYStageButton *backButton;
+
+@property (nonatomic, strong) JYDemoCurve *demo;
 
 //@property (nonatomic, strong) SKView *skView;
 
@@ -87,10 +89,34 @@
     [UIView animateWithDuration:1.0f animations:^{
         playButton.alpha = 1.0f;
     }];
+    
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400., 100.)];
+    title.center = CGPointMake(self.view.center.x, self.view.center.y - 50.);
+    title.textAlignment = NSTextAlignmentCenter;
+    title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:42.0];
+    title.text = @"BEZIÉR RIDER";
+    title.textColor = [UIColor whiteColor];
+    _titleLabel = title;
+    
+    [_overlayView addSubview:title];
+    
+    JYDemoCurve *demo = [[JYDemoCurve alloc] initWithFrame:CGRectMake(WIDTH(self.view) / 4, 2 * HEIGHT(self.view) / 3, WIDTH(self.view) / 2, 80.)];
+    _demo = demo;
+    [_overlayView addSubview:demo];
+    
+    JYStageButton *learnMore = [[JYStageButton alloc] initWithPosition:CGPointMake(WIDTH(self.view) - 45 - 10, HEIGHT(self.view) - 20 - 10) size:CGSizeMake(90, 40.) text:@"Learn More"];
+    [_overlayView addSubview:learnMore];
+    learnMore.titleLabel.font = playButton.titleLabel.font = [UIFont systemFontOfSize:14.];
+    
+    [JYUtils fadeInView:learnMore withDuration:FADE_DURATION completion:nil];
+    [JYUtils fadeInView:_titleLabel withDuration:FADE_DURATION completion:nil];
+    [JYUtils fadeInView:_demo withDuration:FADE_DURATION completion:nil];
 }
 
 - (void)hidePlayButton {
     
+    [JYUtils fadeOut:_titleLabel withDuration:FADE_DURATION completion:nil];
+    [JYUtils fadeOut:_demo withDuration:FADE_DURATION completion:nil];
     [JYUtils fadeOut:_playButton withDuration:FADE_DURATION completion:^(BOOL completion) {
         
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x - 100, self.view.center.y - 90, 200, 80)];

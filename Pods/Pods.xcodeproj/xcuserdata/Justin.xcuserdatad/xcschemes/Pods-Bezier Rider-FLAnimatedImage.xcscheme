@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "26D8FEB37D810CC12FC905BB"
-               BuildableName = "FlatUIKit.framework"
-               BlueprintName = "Pods-Bezier Rider-FlatUIKit"
+               BlueprintIdentifier = "546E728503994B3FE99CDE86"
+               BuildableName = "FLAnimatedImage.framework"
+               BlueprintName = "Pods-Bezier Rider-FLAnimatedImage"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

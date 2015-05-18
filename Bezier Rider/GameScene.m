@@ -67,21 +67,13 @@
     [self addChild:_backButton];
     _backButton.name = @"back";
     _backButton.image = [UIImage imageNamed:@"back"];
-//    backButton.text = @"◀︎";
     
-    _addButton = [[SKButton alloc] initWithPosition:CGPointMake(buttonSize.width / 2 + padding, buttonSize.height / 2 + padding) size:buttonSize];
-    [self addChild:_addButton];
-    _addButton.name = @"add";
-    _addButton.image = [UIImage imageNamed:@"plus"];
-//    addButton.text = @"+";
-    
-    _playButton = [[SKButton alloc] initWithPosition:CGPointMake(1.5 * buttonSize.width + 2 * padding, buttonSize.height / 2 + padding) size:buttonSize];
+    _playButton = [[SKButton alloc] initWithPosition:CGPointMake(0.5 * buttonSize.width + padding, buttonSize.height / 2 + padding) size:buttonSize];
     [self addChild:_playButton];
     _playButton.name = @"play";
     _playButton.image = [UIImage imageNamed:@"play"];
-//    playButton.text = @"▶︎";
     
-    _replayButton = [[SKButton alloc] initWithPosition:CGPointMake(2.5 * buttonSize.width + 3 * padding, buttonSize.height / 2 + padding) size:buttonSize];
+    _replayButton = [[SKButton alloc] initWithPosition:CGPointMake(1.5 * buttonSize.width + 2 * padding, buttonSize.height / 2 + padding) size:buttonSize];
     [self addChild:_replayButton];
     _replayButton.name = @"replay";
     _replayButton.image = [UIImage imageNamed:@"replay"];
@@ -119,8 +111,17 @@
         case 0:
             [self setupTutorialStage];
             break;
+        case 1:
+            [self setupStageOne];
+            break;
+        case 2:
+            [self setupStageTwo];
+            break;
         case 3:
             [self setupStageThree];
+            break;
+        case 4:
+            [self setupStageFour];
             break;
     }
 }
@@ -133,26 +134,27 @@
     _target = [[JYTarget alloc] initWithTexture:targetTexture color:[UIColor clearColor] size:CGSizeMake(40., 40.)];
     _target.position = CGPointMake(WIDTH(self.view) - 100, 150);
 
-    if (_tutorialStep < 4) {
-        JYTutorialLabel *tutorialLabel = [[JYTutorialLabel alloc] init];
-        tutorialLabel.text = @"Click the highlighted button to add a curve.";
-        tutorialLabel.position = CGPointMake(_addButton.position.x - _addButton.frame.size.width / 2, _addButton.position.y + 30.);
+    if (_tutorialStep < 3) {
         
-        JYTutorialLabel *ballLabel = [[JYTutorialLabel alloc] init];
-        ballLabel.text = @"This ball will interact with your curves.";
+        [self removeChildrenWithName:@"highlight"];
+        [self removeChildrenWithName:@"tutorial"];
+        JYTutorialLabel *tutorialLabel = [[JYTutorialLabel alloc] init];
+        tutorialLabel.text = @"Tap on the white space to create a point.";
+        tutorialLabel.position = CGPointMake(_playButton.position.x - _playButton.frame.size.width / 2, _playButton.position.y + 60);
+        
+        JYTutorialLabel *aTutorialLabel = [[JYTutorialLabel alloc] init];
+        aTutorialLabel.text = @"You need 3-4 points to create a curve.";
+        aTutorialLabel.position = CGPointMake(_playButton.position.x - _playButton.frame.size.width / 2, _playButton.position.y + 30);
+        
+        [self addChild:tutorialLabel];
+        [self addChild:aTutorialLabel];
         
         _tutorialStep = 1;
-        [self addChild:tutorialLabel];
-        
-        JYHighlightNode *highlight = [[JYHighlightNode alloc] initWithPosition:_addButton.position size:CGSizeMake(_addButton.frame.size.width + 5., _addButton.frame.size.height + 5.)];
-        [self addChild:highlight];
-        _highlight = highlight;
-
     }
 
     [self addChild:_ball];
     
-    if (_tutorialStep == 4) {
+    if (_tutorialStep == 3) {
         [self addChild:_target];
         _target.alpha = 0;
         [_target runAction:[SKAction fadeInWithDuration:1.0f]];
@@ -167,7 +169,36 @@
 
 - (void)setupStageOne {
     
+    _ball = [[JYBall alloc] initWithColor:[UIColor alizarinColor] position:CGPointMake(100, HEIGHT(self.view) - 100.) size:CGSizeMake(40., 40.)];
     
+    SKTexture *targetTexture = [SKTexture textureWithImageNamed:@"target"];
+    _target = [[JYTarget alloc] initWithTexture:targetTexture color:[UIColor clearColor] size:CGSizeMake(40, 40)];
+    _target.position = CGPointMake(100., 100.);
+    
+    [self addChild:_ball];
+    [self addChild:_target];
+    
+    JYWall *wall = [[JYWall alloc] initWithPoint:CGPointMake(0, HEIGHT(self.view) / 2) andEndpoint:CGPointMake(WIDTH(self.view) - _ball.frame.size.width, HEIGHT(self.view) / 2)];
+    [self addChild:wall];
+}
+
+- (void)setupStageTwo {
+    
+    _ball = [[JYBall alloc] initWithColor:[UIColor alizarinColor] position:CGPointMake(WIDTH(self.view) / 2, 6 * HEIGHT(self.view) / 7) size:CGSizeMake(40., 40.)];
+    
+    SKTexture *targetTexture = [SKTexture textureWithImageNamed:@"target"];
+    _target = [[JYTarget alloc] initWithTexture:targetTexture color:[UIColor clearColor] size:CGSizeMake(40, 40)];
+    _target.position = CGPointMake(WIDTH(self.view) / 2, HEIGHT(self.view) / 5);
+    
+    [self addChild:_ball];
+    [self addChild:_target];
+    
+    JYWall *wall1 = [[JYWall alloc] initWithPoint:CGPointMake(WIDTH(self.view) / 4, 0) andEndpoint:CGPointMake(WIDTH(self.view) / 4 + 80., HEIGHT(self.view) / 2.5)];
+    [self addChild:wall1];
+    JYWall *wall2 = [[JYWall alloc] initWithPoint:CGPointMake(3 * WIDTH(self.view) / 4, 0) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 4 - 80., HEIGHT(self.view) / 2.5)];
+    [self addChild:wall2];
+    JYWall *blockerWall = [[JYWall alloc] initWithPoint:CGPointMake(WIDTH(self.view) / 3, 5 * HEIGHT(self.view) / 7) andEndpoint:CGPointMake(2 * WIDTH(self.view) / 3, 5 * HEIGHT(self.view) / 7)];
+    [self addChild:blockerWall];
 }
 
 - (void)setupStageThree {
@@ -186,6 +217,58 @@
     [self addChild:wall1];
     JYWall *wall2 = [[JYWall alloc] initWithPoint:CGPointMake(2 * WIDTH(self.view) / 3, HEIGHT(self.view)) andEndpoint:CGPointMake(2 * WIDTH(self.view) / 3, HEIGHT(self.view) / 3)];
     [self addChild:wall2];
+}
+
+- (void)setupStageFour {
+    
+    [self removeAllActions];
+    
+    _ball = [[JYBall alloc] initWithColor:[UIColor alizarinColor] position:CGPointMake(100, HEIGHT(self.view) - 40.) size:CGSizeMake(40., 40.)];
+    
+    SKTexture *targetTexture = [SKTexture textureWithImageNamed:@"target"];
+    _target = [[JYTarget alloc] initWithTexture:targetTexture color:[UIColor clearColor] size:CGSizeMake(40, 40)];
+    _target.position = CGPointMake(WIDTH(self.view) - 40, 60);
+    
+    
+    [self addChild:_ball];
+    [self addChild:_target];
+    
+    JYWall *wall1 = [[JYWall alloc] initWithPoint:CGPointMake(WIDTH(self.view) / 4, HEIGHT(self.view)) andEndpoint:CGPointMake(WIDTH(self.view) / 4, 2 * HEIGHT(self.view) / 3)];
+    [self addChild:wall1];
+
+    SKAction *moveTo = [SKAction moveToY:-HEIGHT(self.view) + HEIGHT(self.view) / 3  duration:1.0f];
+    SKAction *moveFrom = [SKAction moveToY:0 duration:1.0f];
+    [wall1 runAction:[SKAction repeatActionForever:[SKAction sequence:@[moveTo, [SKAction waitForDuration:0.25f], moveFrom, [SKAction waitForDuration:0.25f]]]]];
+    
+    SKAction *bMoveTo = [SKAction moveToY:HEIGHT(self.view) - HEIGHT(self.view) / 3  duration:1.0f];
+    SKAction *bMoveFrom = [SKAction moveToY:0 duration:1.0f];
+    JYWall *wall2 = [[JYWall alloc] initWithPoint:CGPointMake(WIDTH(self.view) / 2, 0) andEndpoint:CGPointMake(WIDTH(self.view) / 2, 1 * HEIGHT(self.view) / 3)];
+    [self addChild:wall2];
+    [wall2 runAction:[SKAction repeatActionForever:[SKAction sequence:@[bMoveTo, [SKAction waitForDuration:0.25f], bMoveFrom, [SKAction waitForDuration:0.25f]]]]];
+    
+    JYWall *wall = [[JYWall alloc] initWithPoint:CGPointMake(WIDTH(self.view) - 140., 0) andEndpoint:CGPointMake(WIDTH(self.view) - 140., 5 * HEIGHT(self.view) / 7)];
+    [self addChild:wall];
+    
+    JYWall *middleWall1 = [[JYWall alloc] initWithPoint:CGPointMake(3 * WIDTH(self.view) / 8, 0) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 8, HEIGHT(self.view) / 2 - 30.)];
+    JYWall *middleWall2 = [[JYWall alloc] initWithPoint:CGPointMake(3 * WIDTH(self.view) / 8, HEIGHT(self.view)) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 8, HEIGHT(self.view) / 2 + 30.)];
+    
+    [self addChild:middleWall1];
+    [self addChild:middleWall2];
+    
+    SKAction *spawnLift = [SKAction performSelector:@selector(spawnLift) onTarget:self];
+    [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[spawnLift, [SKAction waitForDuration:1.0f]]]]];
+}
+
+- (void)spawnLift {
+    
+    
+    JYWall *lift = [[JYWall alloc] initWithPoint:CGPointMake(4.5 * WIDTH(self.view) / 7, -10) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 4 - 5., -10)];
+    [self addChild:lift];
+    
+    SKAction *moveToTop = [SKAction moveToY:HEIGHT(self.view) + 60 duration:1.5f];
+    SKAction *remove = [SKAction removeFromParent];
+    
+    [lift runAction:[SKAction sequence:@[moveToTop, remove]]];
 }
 
 #pragma mark - Bezier Curves
@@ -246,14 +329,15 @@
         [node isKindOfClass:[SKButton class]] ||
         [node isKindOfClass:[JYPoint class]] ||
         [node isKindOfClass:[SKSpriteNode class]] ||
-        [node isKindOfClass:[SKLabelNode class]]) {
+        [node isKindOfClass:[SKLabelNode class]] ||
+        [node isKindOfClass:[JYHighlightNode class]]) {
         
         if ([node.name isEqualToString:@"back"]) {
             
             [self.delegate didHitBackButton];
         } else if ([node.name isEqualToString:@"play"] && !_running && !_adding) {
             
-            if (_tutorialStep == 3) {
+            if (_tutorialStep == 2) {
                 
                 [self removeChildrenWithName:@"highlight"];
                 [self removeChildrenWithName:@"tutorial"];
@@ -263,73 +347,21 @@
                 clearLabel.position = CGPointMake(_replayButton.position.x + _replayButton.frame.size.width / 2 + 10, _replayButton.frame.size.height / 2);
                 [self addChild:clearLabel];
                 
-                _highlight = [[JYHighlightNode alloc] initWithPosition:_replayButton.position size:CGSizeMake(_addButton.frame.size.width + 5., _addButton.frame.size.height + 5.)];
+                _highlight = [[JYHighlightNode alloc] initWithPosition:_replayButton.position size:CGSizeMake(_playButton.frame.size.width + 10., _playButton.frame.size.height + 10.)];
                 [self addChild:_highlight];
                 
                 _tutorialStep++;
             }
             
             _running = YES;
-            _addButton.enabled = NO;
+//            _addButton.enabled = NO;
+            _playButton.enabled = NO;
             _replayButton.enabled = YES;
             
             _ball.physicsBody.affectedByGravity = YES;
             
             [self drawBezierCurves];
-        } else if ([node.name isEqualToString:@"add"] && !_running) {
-            
-            if (_tutorialStep == 1) {
-                
-                [self removeChildrenWithName:@"highlight"];
-                [self removeChildrenWithName:@"tutorial"];
-                JYTutorialLabel *tutorialLabel = [[JYTutorialLabel alloc] init];
-                tutorialLabel.text = @"Tap on the white space to create a point.";
-                tutorialLabel.position = CGPointMake(_addButton.position.x - _addButton.frame.size.width / 2, _addButton.position.y + 60);
-                
-                JYTutorialLabel *aTutorialLabel = [[JYTutorialLabel alloc] init];
-                aTutorialLabel.text = @"You need 3-4 points to create a curve.";
-                aTutorialLabel.position = CGPointMake(_addButton.position.x - _addButton.frame.size.width / 2, _addButton.position.y + 30);
-                
-                JYTutorialLabel *bTutorialLabel = [[JYTutorialLabel alloc] init];
-                bTutorialLabel.text = @"After you plot your points, hit done.";
-                bTutorialLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
-                
-                [self addChild:tutorialLabel];
-                [self addChild:aTutorialLabel];
-                [self addChild:bTutorialLabel];
-                
-                _highlight = [[JYHighlightNode alloc] initWithPosition:_doneButton.position size:CGSizeMake(_addButton.frame.size.width + 5., _addButton.frame.size.height + 5.)];
-                [self addChild:_highlight];
-                
-                bTutorialLabel.position = CGPointMake(WIDTH(self.view) - _doneButton.frame.size.width - 20, HEIGHT(self.view) - 35);
-                _tutorialStep++;
-            }
-            
-            _doneButton.hidden = NO;
-            _adding = YES;
-            
-            _addButton.enabled = NO;
-            _replayButton.enabled = NO;
-            _playButton.enabled = NO;
-                        
-            if ([_curves count] == 0) {
-                
-                NSMutableArray *newArray = [[NSMutableArray alloc] init];
-                [_curves addObject:newArray];
-            } else if ([_curves count] <= 6) { // MAX of 6 curves
-
-                NSMutableArray *array = (NSMutableArray *)(_curves[[_curves count] - 1]);
-
-                if ([array count] == 3 || [array count] == 4) {
-                    
-                    NSMutableArray *newArray = [[NSMutableArray alloc] init];
-                    [_curves addObject:newArray];
-                    
-                    NSLog(@"Adding a new curve: %d", (int)[_curves count]);
-                }
-            }
-            
-        } else if ([node.name isEqualToString:@"replay"] && !_adding) {
+        } else if ([node.name isEqualToString:@"replay"] /*&& !_adding*/) {
 
             [self removeAllChildren];
             
@@ -339,33 +371,38 @@
             
             _adding = NO;
             
-            _addButton.enabled = YES;
+//            _addButton.enabled = YES;
             
             [self setupGameplayButtons];
             [self setupSceneForStage:_stage];
         } else if ([node.name isEqualToString:@"done"]) {
             
-            if ([(NSMutableArray *)[_curves lastObject] count] == 0 || ([(NSMutableArray *)[_curves lastObject] count] >= 3 && [(NSMutableArray *)[_curves lastObject] count] < 5)) {
+            if ([(NSMutableArray *)[_curves lastObject] count] == 0 || [(NSMutableArray *)[_curves lastObject] count] == 3) {
+                
+                if ([(NSMutableArray *)[_curves lastObject] count] == 3) {
+                    
+                    [_curves addObject:[[NSMutableArray alloc] init]];
+                }
                 
                 _adding = NO;
                 
-                _addButton.enabled = YES;
+//                _addButton.enabled = YES;
                 _replayButton.enabled = YES;
                 _playButton.enabled = YES;
                 
                 _doneButton.hidden = YES;
                 
-                if (_tutorialStep == 2) {
+                if (_tutorialStep == 1) {
                     
                     [self removeChildrenWithName:@"highlight"];
                     [self removeChildrenWithName:@"tutorial"];
                     
                     JYTutorialLabel *tutorialLabel = [[JYTutorialLabel alloc] init];
                     tutorialLabel.text = @"Hit the play button to test your Beziér curve.";
-                    tutorialLabel.position = CGPointMake(_addButton.position.x - _addButton.frame.size.width / 2, _addButton.position.y + 30);
+                    tutorialLabel.position = CGPointMake(_playButton.position.x - _playButton.frame.size.width / 2, _playButton.position.y + 30);
                     [self addChild:tutorialLabel];
                     
-                    _highlight = [[JYHighlightNode alloc] initWithPosition:_playButton.position size:CGSizeMake(_addButton.frame.size.width + 5., _addButton.frame.size.height + 5.)];
+                    _highlight = [[JYHighlightNode alloc] initWithPosition:_playButton.position size:CGSizeMake(_playButton.frame.size.width + 10., _playButton.frame.size.height + 10.)];
                     [self addChild:_highlight];
                     
                     _tutorialStep++;
@@ -373,57 +410,97 @@
             }
             
         }
-    } else if (_adding && ![node isKindOfClass:[JYPoint class]]) {
+    } else if (![node isKindOfClass:[JYPoint class]]) {
         
-        if ([_curves[[_curves count] - 1] isKindOfClass:[NSMutableArray class]]) {
+        if (!_running) {
             
-            NSMutableArray *array = (NSMutableArray *)(_curves[[_curves count] - 1]);
-            if ([array count] == 4) {
-
+            _doneButton.hidden = NO;
+            _adding = YES;
+            
+//            _addButton.enabled = NO;
+            _replayButton.enabled = YES;
+            _playButton.enabled = NO;
+            
+            if ([_curves count] == 0) {
                 
-                NSLog(@"Full, add a new curve");
-            } else if ([_curves count] <= 6) {
-                NSMutableArray *array = ((NSMutableArray *)_curves[[_curves count] - 1]);
+                NSMutableArray *newArray = [[NSMutableArray alloc] init];
+                [_curves addObject:newArray];
+            } else if ([_curves count] <= 6) { // MAX of 6 curves
                 
-                UIColor *color = (UIColor *)([JYUtils colorArray][[_curves count] - 1]);
-                JYPoint *point = [[JYPoint alloc] initWithSize:CGSizeMake(10.0, 10.0) atPosition:touchPoint color:color];
-                [self addChild:point];
-                [array addObject:point];
-                                
-                if ([array count] >= 2) {
-                    [self addSegmentBetween:(JYPoint *)array[[array count] - 2] andEndpoint:point];
-                }
+                NSMutableArray *array = (NSMutableArray *)(_curves[[_curves count] - 1]);
                 
                 if ([array count] == 4) {
                     
-                    if (_tutorialStep == 2) {
-                        [self removeChildrenWithName:@"highlight"];
-                        [self removeChildrenWithName:@"tutorial"];
+                    NSMutableArray *newArray = [[NSMutableArray alloc] init];
+                    [_curves addObject:newArray];
+                    
+                    NSLog(@"Adding a new curve: %d", (int)[_curves count]);
+                }
+            }
+        }
+        
+        if (_adding) {
+            if ([_curves[[_curves count] - 1] isKindOfClass:[NSMutableArray class]]) {
+                
+                NSMutableArray *array = (NSMutableArray *)(_curves[[_curves count] - 1]);
+                if ([array count] == 4) {
+                    
+                    NSLog(@"Full, add a new curve");
+                } else if ([_curves count] <= 6) {
+                    
+                    NSMutableArray *array = ((NSMutableArray *)_curves[[_curves count] - 1]);
+                    
+                    UIColor *color = (UIColor *)([JYUtils colorArray][[_curves count] - 1]);
+                    JYPoint *point = [[JYPoint alloc] initWithSize:CGSizeMake(10.0, 10.0) atPosition:touchPoint color:color];
+                    [self addChild:point];
+                    [array addObject:point];
+                    
+                    if (_tutorialStep == 1) {
                         
-                        JYTutorialLabel *tutorialLabel = [[JYTutorialLabel alloc] init];
-                        tutorialLabel.text = @"Hit the play button to test your Beziér curve.";
-                        tutorialLabel.position = CGPointMake(_addButton.position.x - _addButton.frame.size.width / 2, _addButton.position.y + 30);
-                        [self addChild:tutorialLabel];
-                        
-                        _highlight = [[JYHighlightNode alloc] initWithPosition:_playButton.position size:CGSizeMake(_addButton.frame.size.width + 5., _addButton.frame.size.height + 5.)];
+                        _highlight = [[JYHighlightNode alloc] initWithPosition:_doneButton.position size:CGSizeMake(_playButton.frame.size.width + 10., _playButton.frame.size.height + 10)];
                         [self addChild:_highlight];
                         
-                        _tutorialStep++;
+                        JYTutorialLabel *bTutorialLabel = [[JYTutorialLabel alloc] init];
+                        bTutorialLabel.text = @"Hit done if you want to plot only 3 points.";
+                        bTutorialLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
+                        bTutorialLabel.position = CGPointMake(WIDTH(self.view) - _doneButton.frame.size.width - 20, HEIGHT(self.view) - 35);
+                        [self addChild:bTutorialLabel];
                     }
                     
-                    // Same as done
-                    _adding = NO;
+                    if ([array count] >= 2) {
+                        [self addSegmentBetween:(JYPoint *)array[[array count] - 2] andEndpoint:point];
+                    }
                     
-                    _addButton.enabled = YES;
-                    _replayButton.enabled = YES;
-                    _playButton.enabled = YES;
+                    if ([array count] == 4) {
+                        
+                        if (_tutorialStep == 1) {
+                            [self removeChildrenWithName:@"highlight"];
+                            [self removeChildrenWithName:@"tutorial"];
+                            
+                            JYTutorialLabel *tutorialLabel = [[JYTutorialLabel alloc] init];
+                            tutorialLabel.text = @"Hit the play button to test your Beziér curve.";
+                            tutorialLabel.position = CGPointMake(_playButton.position.x - _playButton.frame.size.width / 2, _playButton.position.y + 30);
+                            [self addChild:tutorialLabel];
+                            
+                            _highlight = [[JYHighlightNode alloc] initWithPosition:_playButton.position size:CGSizeMake(_playButton.frame.size.width + 10., _playButton.frame.size.height + 10.)];
+                            [self addChild:_highlight];
+                            
+                            _tutorialStep++;
+                        }
+                        
+                        // Same as done
+                        _adding = NO;
+                        _replayButton.enabled = YES;
+                        _playButton.enabled = YES;
+                        
+                        _doneButton.hidden = YES;
+                    }
                     
-                    _doneButton.hidden = YES;
                 }
-                
             }
         }
     }
+        
 }
 
 - (void)removeChildrenWithName:(NSString *)name {
@@ -449,7 +526,7 @@
             
         SKAction *fade = [SKAction fadeOutWithDuration:1.0f];
         _ball.physicsBody.affectedByGravity = NO;
-        _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx / 3, _ball.physicsBody.velocity.dy / 3);
+        _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx / 4, _ball.physicsBody.velocity.dy / 4);
         [_ball runAction:fade];
         
         [self displayWinScreen];
