@@ -60,7 +60,7 @@
 
 - (void)setupGameplayButtons {
     
-    CGSize buttonSize = CGSizeMake(40., 40.);
+    CGSize buttonSize = CGSizeMake(50.0, 50.0);
     CGFloat padding = 10;
     
     _backButton = [[SKButton alloc] initWithPosition:CGPointMake(buttonSize.width / 2 + padding, HEIGHT(self.view) - buttonSize.height / 2 - padding) size:buttonSize];
@@ -108,6 +108,9 @@
 - (void)setupSceneForStage:(NSInteger)stage {
     
     switch (stage) {
+        case -1:
+            [self setupPlayground];
+            break;
         case 0:
             [self setupTutorialStage];
             break;
@@ -124,6 +127,13 @@
             [self setupStageFour];
             break;
     }
+}
+
+- (void)setupPlayground {
+    
+    _ball = [[JYBall alloc] initWithColor:[UIColor alizarinColor] position:CGPointMake(100, HEIGHT(self.view) - 80.0f) size:CGSizeMake(50., 50.)];
+    
+    [self addChild:_ball];
 }
 
 - (void)setupTutorialStage {
@@ -246,7 +256,7 @@
     [self addChild:wall2];
     [wall2 runAction:[SKAction repeatActionForever:[SKAction sequence:@[bMoveTo, [SKAction waitForDuration:0.25f], bMoveFrom, [SKAction waitForDuration:0.25f]]]]];
     
-    JYWall *wall = [[JYWall alloc] initWithPoint:CGPointMake(WIDTH(self.view) - 140., 0) andEndpoint:CGPointMake(WIDTH(self.view) - 140., 5 * HEIGHT(self.view) / 7)];
+    JYWall *wall = [[JYWall alloc] initWithPoint:CGPointMake(3 * WIDTH(self.view) / 4 + 5. , 0) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 4 + 5., 5 * HEIGHT(self.view) / 7)];
     [self addChild:wall];
     
     JYWall *middleWall1 = [[JYWall alloc] initWithPoint:CGPointMake(3 * WIDTH(self.view) / 8, 0) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 8, HEIGHT(self.view) / 2 - 30.)];
@@ -262,7 +272,7 @@
 - (void)spawnLift {
     
     
-    JYWall *lift = [[JYWall alloc] initWithPoint:CGPointMake(4.5 * WIDTH(self.view) / 7, -10) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 4 - 5., -10)];
+    JYWall *lift = [[JYWall alloc] initWithPoint:CGPointMake(5 * WIDTH(self.view) / 8, -10) andEndpoint:CGPointMake(3 * WIDTH(self.view) / 4 - 5., -10)];
     [self addChild:lift];
     
     SKAction *moveToTop = [SKAction moveToY:HEIGHT(self.view) + 60 duration:1.5f];
@@ -440,6 +450,7 @@
         }
         
         if (_adding) {
+            _adding = NO;
             if ([_curves[[_curves count] - 1] isKindOfClass:[NSMutableArray class]]) {
                 
                 NSMutableArray *array = (NSMutableArray *)(_curves[[_curves count] - 1]);

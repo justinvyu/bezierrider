@@ -172,6 +172,12 @@
         _backButton.hidden = NO;
         [JYUtils fadeInView:_backButton withDuration:FADE_DURATION completion:nil];
     }];
+    
+    JYStageButton *playground = [[JYStageButton alloc] initWithPosition:CGPointMake(self.view.center.x, self.view.center.y + 20 + buttonSize.height) size:CGSizeMake(120., buttonSize.height) text:@"Playground"];
+    playground.stage = -1;
+    [self addTargetToButton:playground];
+    [_overlayView addSubview:playground];
+    [JYUtils fadeInView:playground withDuration:FADE_DURATION completion:nil];
 }
 
 - (void)addTargetToButton:(JYStageButton *)button {

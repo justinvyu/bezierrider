@@ -38,8 +38,8 @@
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+//    skView.showsFPS = YES;
+//    skView.showsNodeCount = YES;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     
     GameScene *scene = [[GameScene alloc] initWithSize:skView.bounds.size stage:_stage];
