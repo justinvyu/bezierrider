@@ -2,11 +2,11 @@
 This is my semester 2 math project involving Beziér curves.
 
 # Screenshots
-![](http://i.imgur.com/RXqFEo3.png)
-![](http://i.imgur.com/U5GIJVW.png)
-![](http://i.imgur.com/U30HdRo.png)
-![](http://i.imgur.com/k2pJFcU.png)
-![](http://i.imgur.com/JVafAto.png)
+![Main Screen](http://i.imgur.com/RXqFEo3.png)
+![Stage Select](http://i.imgur.com/U5GIJVW.png)
+![Tutorial Stage](http://i.imgur.com/U30HdRo.png)
+![Stage 3](http://i.imgur.com/k2pJFcU.png)
+![Stage 4](http://i.imgur.com/JVafAto.png)
 
 # WIP
 - Undo button (alternative to clear)
